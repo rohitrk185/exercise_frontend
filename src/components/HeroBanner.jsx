@@ -28,6 +28,7 @@ const HeroBanner = () => {
         opacity: 0.1,
         display: { lg: 'block', xs: 'none'}
       }}>Exercise</Typography>
+      
       <img src={HeroBannerImage} alt="Banner" className='hero-banner-img' />
     </Box>
   )

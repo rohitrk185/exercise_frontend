@@ -10,6 +10,8 @@ const Home = () => {
   const [bodyPart, setBodyPart] = useState('all')
   const [exercises, setExercises] = useState([]);
 
+  console.log(bodyPart);
+  
   return (
     <Box width='400px' sx={{width: {xl : '1488px'}}} m='auto'>
        <HeroBanner />
