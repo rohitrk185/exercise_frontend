@@ -9,7 +9,7 @@ const ExerciseCard =  ({ exercise }) => {
       <img src={exercise.gifUrl} alt={exercise.name} loading='lazy'/>
 
       <Stack direction='row'>
-        <Button sx={{ml: '21px', color: '#fff', background: '#ff5989', fontSize: '14px', borderRadius: '20px', textTransform: 'capitalize', padding: '5px 8px'}}>
+        <Button sx={{ml: '21px', color: '#000', background: '#ff5989', fontSize: '14px', borderRadius: '20px', textTransform: 'capitalize', padding: '5px 8px'}}>
           {exercise.bodyPart}
         </Button>
         <Button sx={{ml: '21px', color: '#000', background: '#fcc757', fontSize: '14px', borderRadius: '20px', textTransform: 'capitalize', padding: '5px 8px'}}>

@@ -15,14 +15,14 @@ const Home = () => {
   return (
     <Box width='400px' sx={{width: {xl : '1488px'}}} m='auto'>
        <HeroBanner />
-       <SearchExercises 
+       {/* <SearchExercises 
         setExercises={setExercises} 
         bodyPart={bodyPart}
         setBodyPart={setBodyPart} />
        <Exercises 
         exercises={exercises}
         setExercises={setExercises} 
-        bodyPart={bodyPart}/>
+        bodyPart={bodyPart}/> */}
     </Box>
   )
 }
