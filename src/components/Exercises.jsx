@@ -7,7 +7,7 @@ import ExerciseCard from './ExerciseCard'
 
 import { exerciseOptions, fetchData } from '../utils/fetchData'
 
-const Exercises = ({ exercises, setExercises, bodyPart })=> {
+const Exercises = ({ exercises, setExercises, bodyPart, user })=> {
   console.log(exercises);
 
   const [currentPage, setCurrentPage] = useState(1);

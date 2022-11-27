@@ -4,7 +4,11 @@ import { Box, Typography, Button } from '@mui/material';
 import HeroBannerImage from '../assets/images/banner.png'
 
 
-const HeroBanner = () => {
+const HeroBanner = ({ user }) => {
+  const nameStyle = {
+    fontSize: '40px',
+    color: '#000',
+  }
 
   return (
     <Box sx={{
@@ -12,7 +16,7 @@ const HeroBanner = () => {
       ml: {sm: '50px'}
     }} position='relative' p='20px'>
       <Typography color='#ff2625' fontWeight='600' fontSize='26px '>
-        Fitness Club
+        Welcome to Fitness Club, <span style={nameStyle}>{user.name}</span>
       </Typography>
       <Typography fontWeight={700} sx={{ fontSize: {lg: '44px', xs: '40px'}}} mb='23px' mt='30px'>
         Sweat, Smile <br/> and Repeat

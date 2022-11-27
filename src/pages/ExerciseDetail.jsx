@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 
 import { Box } from '@mui/material'
 
@@ -8,7 +8,14 @@ import ExerciseVideos from '../components/ExerciseVideos'
 import SimilarExercises from '../components/SimilarExercises'
 import { exerciseOptions, youtubeOptions, fetchData } from '../utils/fetchData'
 
-const ExerciseDetail = () => {
+const ExerciseDetail = ({ user }) => {
+  const navigate = useNavigate();
+  user = JSON.parse(localStorage.getItem('user'));
+  if(!user) {
+    navigate('/login');
+  }
+  window.scrollTo({top: '0', behavior: 'smooth'})
+  
   const [exerciseDetail, setExerciseDetail] = useState({})
   const [exerciseVideos, setExerciseVideos] = useState([])
   const [targetMuscleExercises, setTargetMuscleExercises] = useState([])
@@ -38,11 +45,11 @@ const ExerciseDetail = () => {
 
   return (
     <Box>
-      <Detail exerciseDetail={exerciseDetail}/>
-      <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail.name}/>
+      <Detail exerciseDetail={exerciseDetail} user={user} />
+      {/* <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail.name}/>
       <SimilarExercises 
         targetMuscleExercises={targetMuscleExercises}
-        equipmentExercises={equipmentExercises}/>
+        equipmentExercises={equipmentExercises} /> */}
     </Box>
   )
 }

@@ -4,6 +4,7 @@ import { Box, Stack, Typography } from '@mui/material'
 
 const ExerciseVideos = ({ exerciseVideos, name}) => {
   if(!exerciseVideos.length) return 'Loading...'
+  
   return (
     <Box sx={{marginTop: { lg: '200px', xs: '20px'}, padding: '20px'}}>
       <Typography variant='h3' mb='33px'>
@@ -31,4 +32,4 @@ const ExerciseVideos = ({ exerciseVideos, name}) => {
   )
 }
 
-export default ExerciseVideos
+export default ExerciseVideos;

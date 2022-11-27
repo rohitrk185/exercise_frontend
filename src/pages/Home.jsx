@@ -1,15 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { Box } from '@mui/material';
-import { toast } from 'react-toastify';
 
 import HeroBanner from '../components/HeroBanner';
 import SearchExercises from '../components/SearchExercises';
 import Exercises from '../components/Exercises';
 
-const Home = () => {
-  const user = JSON.parse(localStorage.getItem('user'));
-  
+const Home = ({ user }) => {
+  const navigate = useNavigate();
+  user = JSON.parse(localStorage.getItem('user'));
+  if(!user) {
+    navigate('/login');
+  }
 
   const [bodyPart, setBodyPart] = useState('all')
   const [exercises, setExercises] = useState([]);
@@ -18,17 +21,21 @@ const Home = () => {
   
   return (
     <Box width='400px' sx={{width: {xl : '1488px'}}} m='auto'>
-       <HeroBanner />
-       {/* <SearchExercises 
+      <HeroBanner user={user} />
+      <SearchExercises 
         setExercises={setExercises} 
         bodyPart={bodyPart}
-        setBodyPart={setBodyPart} />
-       <Exercises 
+        setBodyPart={setBodyPart}
+        user={user} 
+      />
+      <Exercises 
         exercises={exercises}
         setExercises={setExercises} 
-        bodyPart={bodyPart}/> */}
+        bodyPart={bodyPart}
+        user={user}
+      />
     </Box>
   )
 }
 
-export default Home
+export default Home;

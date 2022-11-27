@@ -16,14 +16,15 @@ import Navbar from './components/Navbar';
 
 function App() {
   const navigate = useNavigate();
+  
   const user = JSON.parse(localStorage.getItem('user'));
-  console.log(user);
+  // console.log(user);
 
   useEffect(() => {
     if(!user) {
       navigate('/login');
     }
-  }, [])
+  }, [navigate, user])
   
 
   return (
@@ -32,10 +33,10 @@ function App() {
         <Box width='400px' sx={{width: {xl : '1488px'}}} m='auto'>
         <Navbar />
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/exercise/:id' element={<ExerciseDetail />} />
-          <Route path='/register' element={<Register />} />
-          <Route path='/login' element={<Login />} />
+          <Route path='/' element={<Home user={user} />} />
+          <Route path='/exercise/:id' element={<ExerciseDetail user={user} />} />
+          <Route path='/register' element={<Register user={user} />} />
+          <Route path='/login' element={<Login user={user} />} />
         </Routes>
       </Box>
       ) : (
