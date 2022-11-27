@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Box } from '@mui/material';
+import { toast } from 'react-toastify';
 
 import HeroBanner from '../components/HeroBanner';
 import SearchExercises from '../components/SearchExercises';
 import Exercises from '../components/Exercises';
 
 const Home = () => {
+  const user = JSON.parse(localStorage.getItem('user'));
+  
+
   const [bodyPart, setBodyPart] = useState('all')
   const [exercises, setExercises] = useState([]);
 
