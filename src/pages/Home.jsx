@@ -9,33 +9,35 @@ import Exercises from '../components/Exercises';
 
 const Home = ({ user }) => {
   const navigate = useNavigate();
-  user = JSON.parse(localStorage.getItem('user'));
-  if(!user) {
-    navigate('/login');
-  }
+  // useEffect(() => {
+    user = JSON.parse(localStorage.getItem('user'));
+    if(!user) {
+      navigate('/login');
+    }
+  // }, [navigate, user])
 
-  const [bodyPart, setBodyPart] = useState('all')
+  const [bodyPart, setBodyPart] = useState('all');
   const [exercises, setExercises] = useState([]);
 
   // console.log(bodyPart);
   
   return (
     <Box width='400px' sx={{width: {xl : '1488px'}}} m='auto'>
-      <HeroBanner user={user} />
-      {/* <SearchExercises 
-        setExercises={setExercises} 
-        bodyPart={bodyPart}
-        setBodyPart={setBodyPart}
-        user={user} 
-        /> */}
-      <Exercises 
-        exercises={exercises}
-        setExercises={setExercises} 
-        bodyPart={bodyPart}
-        user={user}
-      /> 
-    </Box>
+    <HeroBanner user={user} />
+    <SearchExercises 
+      setExercises={setExercises} 
+      bodyPart={bodyPart}
+      setBodyPart={setBodyPart}
+      user={user} 
+      />
+    <Exercises 
+      exercises={exercises}
+      setExercises={setExercises} 
+      bodyPart={bodyPart}
+      user={user}
+    /> 
+  </Box>
   )
-}
+};
 
 export default Home;

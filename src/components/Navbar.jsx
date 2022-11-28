@@ -29,6 +29,7 @@ const Navbar = () => {
       sx={{gap:{sm: '30px', xs: '20px'}, fontSize:{sm:'24px',}}}>
         <Link to='/' style={{textDecoration: 'none', color: '3a1212', borderBottom: '3px solid #ff2625'}}>Home</Link>
         <a href="/#exercises" style={{textDecoration:'none', color:'#3a1212'}}>Exercises</a>
+        <Link to='/user-plan' style={{textDecoration: 'none', color: '3a1212'}}>Workout Plan</Link>
         <Button variant="contained"
           color='warning'
           sx={{ padding:'0 20px', lineHeight:'0', height:'40px'}}

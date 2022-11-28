@@ -11,9 +11,9 @@ import { exerciseOptions, youtubeOptions, fetchData } from '../utils/fetchData'
 const ExerciseDetail = ({ user }) => {
   const navigate = useNavigate();
   user = JSON.parse(localStorage.getItem('user'));
-  if(!user) {
-    navigate('/login');
-  }
+  // if(!user) {
+  //   navigate('/login');
+  // }
   window.scrollTo({top: '0', behavior: 'smooth'})
   
   const [exerciseDetail, setExerciseDetail] = useState({})
@@ -46,10 +46,10 @@ const ExerciseDetail = ({ user }) => {
   return (
     <Box>
       <Detail exerciseDetail={exerciseDetail} user={user} />
-      {/* <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail.name}/>
+      <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail.name}/>
       <SimilarExercises 
         targetMuscleExercises={targetMuscleExercises}
-        equipmentExercises={equipmentExercises} /> */}
+        equipmentExercises={equipmentExercises} />
     </Box>
   )
 }

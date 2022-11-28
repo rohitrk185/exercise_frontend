@@ -38,7 +38,7 @@ const HorizontalScrollBar = ({ data, bodyPart, setBodyPart, isBodyParts }) => {
         { data.map((item) => (
           <Box 
             key={item.id || item} 
-            itemID={item.id || item}     
+            itemId={item.id || item}     
             title={item.id || item} 
             m='0 40px'
           > 
@@ -48,6 +48,6 @@ const HorizontalScrollBar = ({ data, bodyPart, setBodyPart, isBodyParts }) => {
           </Box>)) }
     </ScrollMenu>
   )
-}
+};
 
 export default HorizontalScrollBar

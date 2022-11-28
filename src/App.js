@@ -12,6 +12,7 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import ExerciseDetail from './pages/ExerciseDetail';
 import Navbar from './components/Navbar';
+import UserPlan from './components/UserPlan';
 
 
 function App() {
@@ -21,10 +22,8 @@ function App() {
   // console.log(user);
 
   useEffect(() => {
-    if(!user) {
-      navigate('/login');
-    }
-  }, [navigate, user])
+    localStorage.setItem('user',JSON.stringify(user));
+  }, [user])
   
 
   return (
@@ -37,12 +36,14 @@ function App() {
           <Route path='/exercise/:id' element={<ExerciseDetail user={user} />} />
           <Route path='/register' element={<Register user={user} />} />
           <Route path='/login' element={<Login user={user} />} />
+          <Route path='/user-plan' element={<UserPlan user={user} />} />
         </Routes>
       </Box>
       ) : (
         <Routes>
-          <Route path='/register' element={<Register />} />
+          <Route path='/' element={<Login />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register  />} />
         </Routes>
       )}
       
