@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 
 import { Typography, Stack, Button } from '@mui/material'
@@ -10,16 +10,13 @@ import { toast } from 'react-toastify';
 
 
 const Detail = ({ exerciseDetail, user }) => {
+    const [isPresent, setIsPresent] = useState(false);
     const {bodyPart, gifUrl, name, target, equipment, id } = exerciseDetail;
     
-    let temp = false;
-    if(user.exercises.includes(id)) {
-        temp = true;
-        console.log(temp);
-    }
+    useEffect(() => {
+      setIsPresent(user.exercises.includes(id));
+    }, [user])
     
-    const [isPresent, setIsPresent] = useState(temp);
-    console.log(isPresent);
 
     const extraDetail = [ 
         {
@@ -61,6 +58,9 @@ const Detail = ({ exerciseDetail, user }) => {
                 if(res.data) {
                     console.log(user);
                     user.exercises = res.data.exercises;
+                    // for(let i = 0; i < user.exercises.length; ++i) {
+                    //     user.exercises[i] = user.exercises[i].exerciseId;
+                    // }
                     console.log(user);
                     localStorage.setItem('user', JSON.stringify(user));
                     console.log(JSON.parse(localStorage.getItem('user')));
@@ -100,7 +100,7 @@ const Detail = ({ exerciseDetail, user }) => {
                     <span>
                         {name}
                     </span>
-                    {(isPresent) ? <Button variant="contained" href='#exercises'
+                    {(isPresent === true) ? <Button variant="contained" href='#exercises'
                         sx={{ padding: '10px 15px', marginLeft: '50px'}} size='small' color='error' onClick={togglePlan}>
                         Remove from Workout Plan
                     </Button> : <Button variant="contained" href='#exercises' 

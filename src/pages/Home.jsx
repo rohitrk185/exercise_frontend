@@ -17,23 +17,23 @@ const Home = ({ user }) => {
   const [bodyPart, setBodyPart] = useState('all')
   const [exercises, setExercises] = useState([]);
 
-  console.log(bodyPart);
+  // console.log(bodyPart);
   
   return (
     <Box width='400px' sx={{width: {xl : '1488px'}}} m='auto'>
       <HeroBanner user={user} />
-      <SearchExercises 
+      {/* <SearchExercises 
         setExercises={setExercises} 
         bodyPart={bodyPart}
         setBodyPart={setBodyPart}
         user={user} 
-      />
+        /> */}
       <Exercises 
         exercises={exercises}
         setExercises={setExercises} 
         bodyPart={bodyPart}
         user={user}
-      />
+      /> 
     </Box>
   )
 }
