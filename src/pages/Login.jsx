@@ -72,7 +72,7 @@ return (
                 </div>
                 
                 <div className="form-group">
-                    <button type='submit' className='btn btn-block'>Submit</button>
+                    <button type='submit' className='btn btn-block'>Login</button>
                 </div>
             </form>
 
@@ -81,7 +81,7 @@ return (
                 <button type='submit' className='btn btn-block'
                     style={{width: 'max(50%, 80px)', margin: '5px auto',}}
                     onClick={(e) => {navigate('/register')}}>
-                    Create new Account
+                    Create Account
                 </button>
             </div>
         </section>

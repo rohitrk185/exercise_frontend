@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 import { Box } from '@mui/material'
 
@@ -9,7 +9,7 @@ import SimilarExercises from '../components/SimilarExercises'
 import { exerciseOptions, youtubeOptions, fetchData } from '../utils/fetchData'
 
 const ExerciseDetail = ({ user }) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   user = JSON.parse(localStorage.getItem('user'));
   // if(!user) {
   //   navigate('/login');

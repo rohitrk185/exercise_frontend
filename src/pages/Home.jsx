@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { Box } from '@mui/material';
@@ -9,12 +9,12 @@ import Exercises from '../components/Exercises';
 
 const Home = ({ user }) => {
   const navigate = useNavigate();
-  // useEffect(() => {
+  useEffect(() => {
     user = JSON.parse(localStorage.getItem('user'));
     if(!user) {
       navigate('/login');
     }
-  // }, [navigate, user])
+  }, [user]);
 
   const [bodyPart, setBodyPart] = useState('all');
   const [exercises, setExercises] = useState([]);
@@ -24,7 +24,7 @@ const Home = ({ user }) => {
   return (
     <Box width='400px' sx={{width: {xl : '1488px'}}} m='auto'>
     <HeroBanner user={user} />
-    <SearchExercises 
+    {/* <SearchExercises 
       setExercises={setExercises} 
       bodyPart={bodyPart}
       setBodyPart={setBodyPart}
@@ -35,7 +35,7 @@ const Home = ({ user }) => {
       setExercises={setExercises} 
       bodyPart={bodyPart}
       user={user}
-    /> 
+    />  */}
   </Box>
   )
 };

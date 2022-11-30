@@ -1,20 +1,19 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef } from 'react'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import { toast } from 'react-toastify';
 
-// let CryptoJS = require('crypto-js');
 
-function Login() {
+function Register() {
     const navigate = useNavigate();
 
-    useEffect(() => {
+    // useEffect(() => {
         const user = JSON.parse(localStorage.getItem('user'));
         if(user) {
             navigate('/');
         }
-    }, [navigate]);
+    // }, [navigate]);
     
     
 
@@ -50,7 +49,9 @@ function Login() {
             
                 const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/users`, JSON.stringify(userData), requestOptions);
 
-                if(res.data) {
+                if(res.data?.message) {
+                    toast.error(res.data.message);
+                } else if(res.data) {
                     toast.success('New User created😊');
                     navigate('/login');
                 }
@@ -99,7 +100,7 @@ return (
                 </div>
                 
                 <div className="form-group">
-                    <button type='submit' className='btn btn-block'>Submit</button>
+                    <button type='submit' className='btn btn-block'>Create Account</button>
                 </div>
             </form>
 
@@ -116,4 +117,4 @@ return (
   )
 }
 
-export default Login;
+export default Register;

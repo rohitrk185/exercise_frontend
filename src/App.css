@@ -10,11 +10,51 @@ body {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
-
+  font-family: 'Poppins', sans-serif;
 }
 
 ::-webkit-scrollbar {
   width: 0px;
+}
+
+#streak-btn span {
+  display: none;
+}
+
+#streak-btn:hover span{
+  display: block;
+  text-transform: capitalize;
+}
+
+.review-container {
+  margin: 0 auto;
+  margin-top: 100px;
+  width: 80%;
+}
+
+.review-container .review-item {
+  width: 100%;
+  font-size: 19px;
+  background-color: #f4f4f4;
+  padding: 10px 20px;
+  margin-bottom: 30px;
+}
+
+.review-container .review-item:nth-child(odd) {
+  border-radius: 20px 0px 0 20px;
+}
+
+.review-container .review-item:nth-child(even) {
+  border-radius: 0 20px 20px 0;
+}
+
+.review-container .review-item .poster-info-grp {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* align-content: center; */
+  gap: 0 20px ;
+  margin-left: 10px;
 }
 
 .right-arrow,
@@ -60,10 +100,9 @@ body {
   position: absolute;
   right: 0px;
   top: 0px;
-  width: 700px;
-  height: 900px;
-  margin-top: -330px;
-
+  width: 600px;
+  height: 700px;
+  margin-top: -150px;
 }
 
 .exercise-card {
