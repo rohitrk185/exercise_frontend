@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 import { Stack, Button, ButtonGroup } from '@mui/material';
 
@@ -9,6 +9,10 @@ import Logo from '../assets/images/Logo.png';
 
 const Navbar = ({ user }) => {
 	const navigate = useNavigate();
+	const location = useLocation();
+	
+	const curPath = location.pathname;
+	console.log(curPath);
 
 	// user = JSON.parse(localStorage.getItem('user'));
 
@@ -31,11 +35,15 @@ const Navbar = ({ user }) => {
 				</Link>
 				<Stack direction='row' gap='40px' fontSize='16px' alignItems='center' justifyContent='center' 
 				sx={{gap:{sm: '30px', xs: '20px'}, fontSize:{sm:'24px',}}}>
-					<Link to='/' style={{textDecoration: 'none', color: '3a1212', borderBottom: '3px solid #ff2625'}}>Home</Link>
-					{/* <a href="/#exercises" style={{textDecoration:'none', color:'#3a1212'}}>Exercises</a> */}
-					<Link to='/user-plan' style={{textDecoration: 'none', color: '3a1212'}}>Workout Plan</Link>
-					<Link to='/calculate-bmi' style={{textDecoration: 'none', color: '3a1212'}}>BMI</Link>
-					<Link to='/reviews' style={{textDecoration: 'none', color: '3a1212'}}>Write Review</Link>
+					{((curPath==='/') ?  <Link to='/' style={{textDecoration: 'none', color: '3a1212', borderBottom: '3px solid #ff2625'}} className='link'>Home</Link> : <Link to='/' style={{textDecoration: 'none', color: '3a1212',}} className='link'>Home</Link>)}
+				
+					{((curPath==='/user-plan') ? <Link to='/user-plan' style={{textDecoration: 'none', color: '3a1212', borderBottom: '3px solid #ff2625'}} className='link'>Workout Plan</Link> : <Link to='/user-plan' style={{textDecoration: 'none', color: '3a1212'}} className='link'>Workout Plan</Link>)}
+
+					{((curPath === '/calculate-bmi') ? <Link to='/calculate-bmi' style={{textDecoration: 'none', color: '3a1212', borderBottom: '3px solid #ff2625'}} className='link'>BMI</Link> : <Link to='/calculate-bmi' style={{textDecoration: 'none', color: '3a1212'}} className='link'>BMI</Link>)}
+					
+					{((curPath === '/contact') ? <Link to='/contact' style={{textDecoration: 'none', color: '3a1212', borderBottom: '3px solid #ff2625'}} className='link'>Contact</Link> : <Link to='/contact' style={{textDecoration: 'none', color: '3a1212'}} className='link'>Contact</Link>)}
+					
+					{((curPath === '/reviews') ? <Link to='/reviews' style={{textDecoration: 'none', color: '3a1212', borderBottom: '3px solid #ff2625'}} className='link'>Give Feedback</Link> : <Link to='/reviews' style={{textDecoration: 'none', color: '3a1212'}} className='link'>Give Feedback</Link>)}
 				</Stack>
 			</Stack>
 			<Stack direction='row' gap='40px' fontSize='16px' alignItems='center' justifyContent='center'

@@ -15,6 +15,7 @@ import Bmi from './pages/Bmi';
 import Navbar from './components/Navbar';
 import UserPlan from './components/UserPlan';
 import Review from './pages/Review';
+import Contact from './pages/Contact';
 
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
           <Route path='/user-plan' element={<UserPlan user={user} />} />
           <Route path='/calculate-bmi' element={<Bmi />} />
           <Route path='/reviews' element={<Review user={user} />} />
+          <Route path='/contact' element={<Contact user={user} />} />
         </Routes>
       </Box>
       ) : (
