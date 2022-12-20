@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import { Typography, Stack, Button } from '@mui/material'
 
+import Timer from './Timer';
 import TargetImage from '../assets/icons/target.png';
 import BodyPartImage from '../assets/icons/body-part.png';
 import EquipmentImage from '../assets/icons/equipment.png';
@@ -107,6 +108,7 @@ const Detail = ({ exerciseDetail, user }) => {
                         sx={{ padding: '10px 15px', marginLeft: '50px'}} size='small' color='success' onClick={togglePlan}>
                         Add to Workout Plan
                     </Button>}
+                    {/* <Timer /> */}
                 </Typography>
                 <Typography variant='h6'>
                     Exercises keep you strong. {name} is one of the best exercises to target your {target}. It will help you improve your mood and gain energy.

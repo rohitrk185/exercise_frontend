@@ -105,6 +105,9 @@ function Review({ user }) {
             if(res.data) {
 				setReviews(res.data);
                 toast.success('Review Added😊');
+				setCurrentValue(0);
+				setHoverValue(0);
+				reviewRef.current.value = '';
             }
         } catch(error) {
             const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString();

@@ -10,7 +10,6 @@ import Exercises from '../components/Exercises';
 const Home = ({ user }) => {
   const navigate = useNavigate();
   useEffect(() => {
-    user = JSON.parse(localStorage.getItem('user'));
     if(!user) {
       navigate('/login');
     }
@@ -24,7 +23,7 @@ const Home = ({ user }) => {
   return (
     <Box width='400px' sx={{width: {xl : '1488px'}}} m='auto'>
     <HeroBanner user={user} />
-    {/* <SearchExercises 
+    <SearchExercises 
       setExercises={setExercises} 
       bodyPart={bodyPart}
       setBodyPart={setBodyPart}
@@ -35,7 +34,7 @@ const Home = ({ user }) => {
       setExercises={setExercises} 
       bodyPart={bodyPart}
       user={user}
-    />  */}
+    /> 
   </Box>
   )
 };
